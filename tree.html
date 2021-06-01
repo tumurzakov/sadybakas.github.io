@@ -51,26 +51,26 @@
 
 
     <section class="content container">
-    <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css"></link>
 
-<div class="container">
-  <h1>404</h1>
+<div id="tree"></div>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<script>
+    var config = {
+        chart: {
+            container: '#tree',
+        },
+        nodeStructure: getTreeData()
+    };
+
+    var chart = new Treant(config);
+</script>
+
+
+
+
 
 </section>
 

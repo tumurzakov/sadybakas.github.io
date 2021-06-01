@@ -27,4 +27,6 @@
 
 .gallery .image { margin: 10px; border: 10px solid white; box-shadow: 3px 2px 4px 1px rgba(0, 0, 0, 0.1); }
 
+.node { border: 1px solid #ccc; padding: 5px; border-radius: 5px; }
+
 /*# sourceMappingURL=styles.css.map */
