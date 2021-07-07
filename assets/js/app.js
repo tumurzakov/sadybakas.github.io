@@ -16,45 +16,38 @@ function getGalleryImages(files) {
 
 function getTreeData() {
     var data = {
-        "Байбек": {
-            "Атай": {
-                "Чекебай": {"Саяк":null, "Курман":null},
-            },
-            "Эшбото": {
-                "Сагын": {
-                    "Омурзак": {
-                        "Кайык":{
-                            "Кыдыраалы": {"Аскар":null, "Жениш":null, "Марат":null},
-                        },
-                        "Садыбакас":{
-                            "Болот":{
-                                "Азамат": {"Арсен":null, "Дамир":null},
-                                "Темир": null,
-                            },
-                            "Мурат":{
-                                "Бермет": {"Ильгиз":null, "Ислам":null, "Алим":null},
-                                "Азиз": null
-                            },
-                            "Кубат":{ "Асель":null, "Нуриля":null },
-                        },
+        "Сагын": {
+            "Омурзак": {
+                "Кайык":{
+                    "Кыдыраалы": {"Аскар":null, "Жениш":null, "Марат":null, "Эльмира": null},
+                },
+                "Садыбакас":{
+                    "Болот":{
+                        "Азамат": node(["Арсен", "Дамир"]),
+                        "Темир": null,
                     },
-                    "Жанызак": {
-                        "Шайын": {
-                            "Суранаалы": {
-                                "Замирбек":null,
-                                "Жолдошбек": null,
-                                "Черик": null,
-                                "Венера": null,
-                                "Улан": null,
-                                "Усан" :null,
-                            }
-                        }
+                    "Кубат":{
+                        "Бермет": node(["Ильгиз", "Ислам", "Алим", "Аман", "Лейла"]),
+                        "Азиз": {"Эмин": null}
+                    },
+                    "Мурат":{
+                        "Асель": node(["Тимур", "Данил", "Армен"]),
+                        "Нуриля": node(["Алихан", "Салим"]),
                     },
                 },
-                "Аылчы": {"Абды": null},
-
             },
-            "Муратбек": null,
+            "Жанызак": {
+                "Шайын": {
+                    "Суранаалы": node([
+                        "Замирбек",
+                        "Жолдошбек",
+                        "Черик",
+                        "Венера",
+                        "Улан",
+                        "Усан"
+                    ])
+                }
+            },
         }
     };
 
@@ -62,13 +55,28 @@ function getTreeData() {
     return tree[0];
 }
 
+function node(names) {
+    var node = {};
+    names.forEach(function(v) {
+        node[v] = null;
+    });
+    return node;
+}
+
 function getTreeNode(node) {
     var children = [];
     for(var p in node) {
+        var options = {};
         if (node[p] == null) {
-            children.push({text: {name: p}});
+            var leaf = {innerHTML: p};
+            children.push(leaf);
         } else if (typeof node[p] == "object") {
-            children.push({text: {name: p}, children: getTreeNode(node[p])});
+            children.push({
+                text: {name: p},
+                HTMLclass: p,
+                stackChildren: true,
+                children: getTreeNode(node[p])
+            });
         }
     }
 

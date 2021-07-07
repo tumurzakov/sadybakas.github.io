@@ -57,10 +57,28 @@
 
 <div id="tree"></div>
 
+<style>
+.Сагын > p,
+.Жанызак > p,
+.Омурзак > p,
+.Шайын > p,
+.Кайык > p,
+.Садыбакас > p,
+.Болот > p,
+.Кубат > p,
+.Мурат > p,
+.Кыдыраалы > p,
+.Суранаалы > p
+{ min-width:120px; text-align: center; }
+</style>
+
 <script>
     var config = {
         chart: {
             container: '#tree',
+            connectors: {type: 'step', stackIndent: 10},
+            siblingSeparation: 5,
+            levelSeparation: 20,
         },
         nodeStructure: getTreeData()
     };
