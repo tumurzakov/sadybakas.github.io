@@ -1,4 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
+table .subsection { padding-top: 80px !important; text-align: center !important; }
+
 .header { display: flex; background-position: center; background-repeat: no-repeat; padding-bottom: 50px; box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2); border-bottom: 1px solid #aaa; }
 
 @media only screen and (min-width: 1000px) { .header__content { display: flex; align-items: flex-end; } }
